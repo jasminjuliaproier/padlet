@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EntrieController;
 use App\Http\Controllers\PadletController;
@@ -30,7 +31,7 @@ Route::post('padlets', [PadletController::class,'save']);
 Route::put('padlets/{id}', [PadletController::class,'update']);
 Route::delete('/padlets/{id}', [PadletController::class, 'delete']);
 Route::get('entries', [EntrieController::class,'index']);
-Route::get('padlets/{id}/entries', [EntrieController::class, 'findByPadletID']);
+Route::get('padlets/{padelt_id}/entries/{entrie_id}', [EntrieController::class, 'findByPadletID']);
 Route::post('padlets/{id}/entries', [EntrieController::class,'save']);
 Route::delete('/entries/{id}', [EntrieController::class, 'delete']);
 Route::put('entries/{id}', [EntrieController::class,'update']);
@@ -38,4 +39,4 @@ Route::get('entries/{id}/ratings', [RatingController::class, 'findByEntryID']);
 Route::post('entries/{id}/ratings', [RatingController::class, 'saveRating']);
 Route::get('entries/{id}/comments', [CommentController::class, 'findCommentsByEntryID']);
 Route::post('entries/{id}/comments', [CommentController::class, 'saveComment']);
-
+Route::post('auth/login', [AuthController::class,'login']);

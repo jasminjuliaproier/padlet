@@ -16,8 +16,8 @@ class EntrieController extends Controller
     }
 
     //Find entrie with id
-    public function findByPadletID (string $id) : JsonResponse{
-        $entrie = Entrie::where('padlet_id', $id)
+    public function findByPadletID (string $padlet_id, string $entrie_id) : JsonResponse{
+        $entrie = Entrie::where([['padlet_id', $padlet_id], ['id', $entrie_id]])
             ->with(['comments','user', 'ratings'])->first();
         return $entrie != null ? response()->json($entrie, 200) : response()->json(null, 200);
     }
