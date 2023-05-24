@@ -32,9 +32,18 @@ class UsersTableSeeder extends Seeder
         $user2->firstName = 'Patrick';
         $user2->lastName = 'Zauner';
         $user2->email = "zauner@test.at";
-        $user2->password = "1234";
+        $user2->password = bcrypt("1234");
         $user2->image = "https://images.unsplash.com/photo-1683480678001-d2b60353b0fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80";
         $user2->save();
+
+        //User 3 hinzufügen
+        $user3 = new User();
+        $user3->firstName = 'Susi';
+        $user3->lastName = 'Huber';
+        $user3->email = "huber@test.at";
+        $user3->password = bcrypt("1234");
+        $user3->image = "https://images.unsplash.com/photo-1683480678001-d2b60353b0fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80";
+        $user3->save();
 
     }
 }

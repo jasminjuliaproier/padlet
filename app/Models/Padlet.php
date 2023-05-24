@@ -12,7 +12,7 @@ class Padlet extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'user_id', 'is_public'];
+    protected $fillable = ['name', 'user_id', 'is_public', 'image'];
 
     public function user() : BelongsTo{
         return $this->belongsTo(User::class);
